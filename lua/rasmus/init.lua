@@ -29,12 +29,13 @@ local set_groups = function()
   local groups = {
     -- Base
     -- Editor highlight groups
-    Normal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg }, -- normal text and background color
-    NormalNC = { fg = c.fg, bg = cfg.transparent and c.none or c.bg }, -- normal text in non-current windows
-    SignColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.bg }, -- column where signs are displayed
+    Normal = { fg = c.fg, bg = cfg.transparent and c.none or c.gray01 }, -- normal text and background color
+    NormalNC = { fg = c.fg, bg = cfg.transparent and c.none or c.gray01 }, -- normal text in non-current windows
+    SignColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.gray01 }, -- column where signs are displayed
+    WinSeparator = { fg = c.gray02, bg = c.gray01 },
     EndOfBuffer = { fg = c.gray03 }, -- ~ lines at the end of a buffer
     NormalFloat = { fg = c.fg, bg = c.gray02 }, -- normal text and background color for floating windows
-    FloatBorder = { fg = c.blue, bg = c.gray02 },
+    FloatBorder = { fg = c.bright_blue, bg = c.gray01 },
     ColorColumn = { fg = c.none, bg = c.gray01 }, --  used for the columns set with 'colorcolumn'
     Conceal = { fg = c.gray05 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = c.cyan, bg = c.none, reverse = true }, -- the character under the cursor
@@ -93,32 +94,32 @@ local set_groups = function()
     healthSuccess = { fg = c.green },
     healthWarning = { fg = c.yellow },
     --common
-    Type = { fg = c.cyan }, -- int, long, char, etc.
-    StorageClass = { fg = c.cyan }, -- static, register, volatile, etc.
+    Type = { fg = c.blue }, -- int, long, char, etc.
+    StorageClass = { fg = c.blue }, -- static, register, volatile, etc.
     Structure = { fg = c.fg }, -- struct, union, enum, etc.
-    Constant = { fg = c.cyan }, -- any constant
+    Constant = { fg = c.blue }, -- any constant
     Comment = { fg = c.gray05, bg = c.none, bold = cfg.comment_style.bold, italic = cfg.comment_style.italic }, -- italic comments
     Conditional = { fg = c.blue, bg = c.none, bold = cfg.keyword_style.bold, italic = cfg.keyword_style.italic }, -- italic if, then, else, endif, switch, etc.
     Keyword = { fg = c.blue, bg = c.none, bold = cfg.keyword_style.bold, italic = cfg.keyword_style.italic }, -- italic for, do, while, etc.
     Repeat = { fg = c.blue, bg = c.none, bold = cfg.keyword_style.bold, italic = cfg.keyword_style.italic }, -- italic any other keyword
-    Boolean = { fg = c.cyan, bg = c.none, bold = cfg.boolean_style.bold, italic = cfg.boolean_style.italic }, -- true , false
+    Boolean = { fg = c.yellow, bg = c.none, bold = cfg.boolean_style.bold, italic = cfg.boolean_style.italic }, -- true , false
     Function = { fg = c.blue, bg = c.none, bold = cfg.function_style.bold, italic = cfg.function_style.italic },
-    Identifier = { fg = c.blue, bg = c.none }, -- any variable name
+    Identifier = { fg = c.fg, bg = c.none }, -- any variable name
     String = { fg = c.cyan, bg = c.none }, -- Any string
     Character = { fg = c.cyan }, -- any character constant: 'c', '\n'
-    Number = { fg = c.cyan }, -- a number constant: 5
-    Float = { fg = c.cyan }, -- a floating point constant: 2.3e10
+    Number = { fg = c.yellow }, -- a number constant: 5
+    Float = { fg = c.yellow }, -- a floating point constant: 2.3e10
     Statement = { fg = c.blue }, -- any statement
-    Label = { fg = c.cyan }, -- case, default, etc.
-    Operator = { fg = c.yellow }, -- sizeof", "+", "*", etc.
-    Exception = { fg = c.yellow }, -- try, catch, throw
+    Label = { fg = c.blue }, -- case, default, etc.
+    Operator = { fg = c.blue }, -- sizeof", "+", "*", etc.
+    Exception = { fg = c.fg }, -- try, catch, throw
     PreProc = { fg = c.red }, -- generic Preprocessor
     Include = { fg = c.blue }, -- preprocessor #include
     Define = { fg = c.cyan }, -- preprocessor #define
     Macro = { fg = c.blue }, -- same as Define
     Typedef = { fg = c.cyan }, -- A typedef
     PreCondit = { fg = c.cyan }, -- preprocessor #if, #else, #endif, etc.
-    Special = { fg = c.blue, bg = c.none, italic = true }, -- any special symbol
+    Special = { fg = c.blue, bg = c.none }, -- any special symbol
     SpecialChar = { fg = c.cyan }, -- special character in a constant
     Tag = { fg = c.yellow }, -- you can use CTRL-] on this
     Delimiter = { fg = c.gray07 }, -- character that needs attention like , or .
@@ -127,7 +128,7 @@ local set_groups = function()
     Underlined = { fg = c.cyan, bg = c.none, underline = true }, -- text that stands out, HTML links
     Ignore = { fg = c.gray07 }, -- left blank, hidden
     Error = { fg = c.red, bg = c.none, bold = true, underline = true }, -- any erroneous construct
-    Todo = { fg = c.cyan, bg = c.none, bold = true, italic = true }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = c.yellow, bg = c.none, bold = true, italic = true }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     -- HTML
     htmlArg = { fg = c.fg, italic = true },
     htmlBold = { fg = c.fg, bg = c.none, bold = true },
@@ -198,7 +199,7 @@ local set_groups = function()
     TSKeywordOperator = { fg = c.yellow }, -- For operators that are English words, e.g. `and`, `as`, `or`.
     TSKeywordReturn = { fg = c.blue, bold = cfg.keyword_style.bold, italic = cfg.keyword_style.italic }, -- For the `return` and `yield` keywords.
     TSLabel = { fg = c.cyan }, -- For labels: `label:` in C and `:label:` in Lua.
-    TSMethod = { fg = c.bright_blue, bold = cfg.function_style.bold, italic = cfg.function_style.italic }, -- For method calls and definitions.
+    TSMethod = { fg = c.blue, bold = cfg.function_style.bold, italic = cfg.function_style.italic }, -- For method calls and definitions.
     TSNamespace = { fg = c.blue }, -- For identifiers referring to modules and namespaces.
     -- TSNone = {}, -- No highlighting. Don't change the values of this highlight group.
     TSNumber = { fg = c.cyan }, -- For all numbers
@@ -305,7 +306,7 @@ local set_groups = function()
     TelescopePromptPrefix = { fg = c.blue },
     -- NvimTree
     NvimTreeRootFolder = { fg = c.cyan, italic = true },
-    NvimTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg },
+    NvimTreeNormal = { fg = c.fg, bg = c.bg },
     NvimTreeImageFile = { fg = c.magenta },
     NvimTreeExecFile = { fg = c.green },
     NvimTreeSpecialFile = { fg = c.magenta },
@@ -337,6 +338,8 @@ local set_groups = function()
     WhichKeySeperator = { fg = c.gray05 },
     WhichKeyFloating = { bg = c.gray01 },
     WhichKeyFloat = { bg = c.gray01 },
+    WhichKeyName = { bg = c.gray01 },
+    WhichKeyTrigger = { bg = c.gray01 },
     -- LspSaga
     LspSagaFinderSelection = { fg = c.magenta },
     LspSagaLspFinderBorder = { fg = c.gray05 },
@@ -374,6 +377,23 @@ local set_groups = function()
     LspSagaDiagnosticHeader = { fg = c.gray07 },
     LspSagaDiagnosticTruncateLine = { fg = c.gray05 },
     -- BufferLine
+    BufferLineBackground = { fg = c.gray04, bg = c.bg },
+    BufferLineGroupLabel = { fg = c.gray04, bg = c.bg },
+    ---
+    BufferLineSeparator = { fg = c.bg, bg = c.bg },
+    BufferLineOffsetSeparator = { fg = c.gray03, bg = c.bg },
+    BufferLineSeparatorSelected = { fg = c.bg, bg = c.gray01 },
+    BufferLineSeparatorVisible = { fg = c.bg, bg = c.gray01 },
+    ---
+    BufferLineBuffer = { italic = false, bg = c.bg },
+    BufferLineBufferSelected = { italic = false, bg = c.gray01 },
+    BufferLineBufferVisible = { italic = false, bg = c.gray01 },
+    ---
+    -- BufferLineDiagnostic = { fg = c.red, bg = c.green },
+    -- BufferLineDiagnosticVisible = { fg = c.red, bg = c.green },
+    -- BufferLineDiagnosticSelected = { fg = c.red, bg = c.green },
+    -- BufferLineDevIconDefault = { fg = c.gray05, bg = c.gray02 },
+    BufferLineFill = { fg = c.fg, bg = c.bg },
     BufferLineIndicatorSelected = { fg = c.green },
     BufferLineFill = { bg = c.gray03 },
     -- Sneak
@@ -448,6 +468,13 @@ local set_groups = function()
     jsonNull = { fg = c.bright_black },
     jsonString = { fg = c.green },
     jsonKeyword = { fg = c.blue },
+    -- YAML
+    typescriptBraces = { fg = c.fg },
+    javascriptBraces = { fg = c.fg },
+    typescriptParens = { fg = c.fg },
+    javascriptParens = { fg = c.fg },
+    foldBraces = { fg = c.fg },
+    yamlBlockMappingKey = { fg = c.blue },
   }
 
   for group, parameters in pairs(groups) do
