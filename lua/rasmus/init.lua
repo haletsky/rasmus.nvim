@@ -395,7 +395,6 @@ local set_groups = function()
         -- BufferLineDevIconDefault = { fg = c.gray05, bg = c.gray02 },
         BufferLineFill = { fg = c.fg, bg = c.bg },
         BufferLineIndicatorSelected = { fg = c.green },
-        BufferLineFill = { bg = c.gray03 },
         -- Sneak
         Sneak = { fg = c.bg, bg = c.green },
         SneakScope = { bg = c.gray04 },
