@@ -29,6 +29,8 @@ local set_groups = function()
 	local groups = {
 		-- Base
 		-- Editor highlight groups
+		MsgArea = { bg = c.bg },
+		MsgSeparator = { bg = c.bg },
 		Normal = { fg = c.fg, bg = cfg.transparent and c.none or c.gray01 }, -- normal text and background color
 		NormalNC = { fg = c.fg, bg = cfg.transparent and c.none or c.gray01 }, -- normal text in non-current windows
 		SignColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.gray01 }, -- column where signs are displayed
@@ -239,9 +241,9 @@ local set_groups = function()
 		TSVariable = { fg = c.fg, bold = cfg.variable_style.bold, italic = cfg.variable_style.italic },         -- Any variable name that does not have another highlight.
 		TSVariableBuiltin = { fg = c.yellow, bold = cfg.variable_style.bold, italic = cfg.variable_style.italic }, -- Variable names that are defined by the languages, like `this` or `self`.
 		-- highlight groups for the native LSP client
-		LspReferenceText = { fg = c.fg, bg = c.gray02 },                                                        -- used for highlighting "text" references
-		LspReferenceRead = { fg = c.fg, bg = c.gray02 },                                                        -- used for highlighting "read" references
-		LspReferenceWrite = { fg = c.fg, bg = c.gray02 },                                                       -- used for highlighting "write" references
+		LspReferenceText  = { fg = c.yellow, bg = c.gray03 },                                                   -- used for highlighting "text" references
+		LspReferenceRead  = { fg = c.yellow, bg = c.gray03 },                                                       -- used for highlighting "read" references
+		LspReferenceWrite = { fg = c.yellow, bg = c.gray03 },                                                       -- used for highlighting "write" references
 		-- Diagnostics
 		DiagnosticError = { fg = c.red },                                                                       -- base highlight group for "Error"
 		DiagnosticWarn = { fg = c.yellow },                                                                     -- base highlight group for "Warning"
@@ -296,13 +298,14 @@ local set_groups = function()
 		GitSignsDelete = { fg = c.bright_red }, -- diff mode: Deleted line |diff.txt|
 		GitSignsDeleteNr = { fg = c.bright_red }, -- diff mode: Deleted line |diff.txt|
 		GitSignsDeleteLn = { fg = c.bright_red }, -- diff mode: Deleted line |diff.txt|
-		GitSignsCurrentLineBlame = { fg = c.gray05 },
+		GitSignsCurrentLineBlame = { fg = c.gray05, italic = true },
 		-- Telescope
 		TelescopeSelectionCaret = { fg = c.blue, bg = c.gray01 },
-		TelescopeBorder = { fg = c.gray05 },
-		TelescopePromptBorder = { fg = c.blue },
-		TelescopeResultsBorder = { fg = c.gray07 },
-		TelescopePreviewBorder = { fg = c.gray05 },
+		TelescopeBorder = { fg = c.gray05, bold = true },
+		TelescopePromptTitle = { fg = c.blue, bold = true },
+		TelescopePromptBorder = { fg = c.blue, bold = true },
+		TelescopeResultsBorder = { fg = c.gray05, bold = true },
+		TelescopePreviewBorder = { fg = c.gray05, bold = true },
 		TelescopeMatching = { fg = c.yellow },
 		TelescopePromptPrefix = { fg = c.blue },
 		-- NvimTree
@@ -396,6 +399,7 @@ local set_groups = function()
 		-- BufferLineDevIconDefault = { fg = c.gray05, bg = c.gray02 },
 		BufferLineFill = { fg = c.fg, bg = c.bg },
 		BufferLineIndicatorSelected = { fg = c.green },
+		BufferLineTitle = { bg = c.bg, fg = c.gray05, bold = true },
 		-- Sneak
 		Sneak = { fg = c.bg, bg = c.green },
 		SneakScope = { bg = c.gray04 },
@@ -475,6 +479,9 @@ local set_groups = function()
 		javascriptParens = { fg = c.fg },
 		foldBraces = { fg = c.fg },
 		yamlBlockMappingKey = { fg = c.blue },
+		-- Avante
+		AvanteSidebarNormal = { bg = c.bg },
+		AvanteSidebarWinSeparator = { bg = c.bg, fg = c.gray02 },
 	}
 
 	for group, parameters in pairs(groups) do
