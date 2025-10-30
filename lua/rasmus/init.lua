@@ -474,7 +474,9 @@ local set_groups = function()
 		jsonKeyword                          = { fg = c.blue },
 		-- YAML
 		typescriptBraces                     = { fg = c.fg },
+		typescriptVariable                   = { fg = c.blue },
 		javascriptBraces                     = { fg = c.fg },
+		typescriptFuncCallArg                = { fg = c.white },
 		typescriptParens                     = { fg = c.fg },
 		javascriptParens                     = { fg = c.fg },
 		foldBraces                           = { fg = c.fg },
@@ -482,6 +484,8 @@ local set_groups = function()
 		-- Avante
 		AvanteSidebarNormal                  = { bg = c.bg },
 		AvanteSidebarWinSeparator            = { bg = c.bg, fg = c.gray02 },
+		-- Vimcript
+		vimCommentTitle                      = { fg = c.gray05 },
 	}
 
 	for group, parameters in pairs(groups) do
