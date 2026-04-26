@@ -114,7 +114,7 @@ local set_groups = function()
 		Statement                            = { fg = c.blue },                                                                            -- any statement
 		Label                                = { fg = c.blue },                                                                            -- case, default, etc.
 		Operator                             = { fg = c.blue },                                                                            -- sizeof", "+", "*", etc.
-		Exception                            = { fg = c.fg },                                                                              -- try, catch, throw
+		Exception                            = { fg = c.blue },                                                                              -- try, catch, throw
 		PreProc                              = { fg = c.red },                                                                             -- generic Preprocessor
 		Include                              = { fg = c.blue },                                                                            -- preprocessor #include
 		Define                               = { fg = c.cyan },                                                                            -- preprocessor #define
@@ -476,16 +476,15 @@ local set_groups = function()
 		typescriptBraces                     = { fg = c.fg },
 		typescriptVariable                   = { fg = c.blue },
 		javascriptBraces                     = { fg = c.fg },
-		typescriptFuncCallArg                = { fg = c.white },
 		typescriptParens                     = { fg = c.fg },
+		typescriptFuncCallArg                = { fg = c.white },
 		javascriptParens                     = { fg = c.fg },
 		foldBraces                           = { fg = c.fg },
 		yamlBlockMappingKey                  = { fg = c.blue },
 		-- Avante
 		AvanteSidebarNormal                  = { bg = c.bg },
 		AvanteSidebarWinSeparator            = { bg = c.bg, fg = c.gray02 },
-		-- Vimcript
-		vimCommentTitle                      = { fg = c.gray05 },
+		vimCommentTitle                      = { fg = c.gray05, bold = true },
 	}
 
 	for group, parameters in pairs(groups) do
